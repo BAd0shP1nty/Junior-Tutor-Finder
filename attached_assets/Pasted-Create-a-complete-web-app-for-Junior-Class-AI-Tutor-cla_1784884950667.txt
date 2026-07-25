@@ -1,0 +1,57 @@
+Create a complete web app for "Junior Class AI Tutor" (classes 6-10 in India) with these exact specs:
+
+FRONTEND (React):
+1. Beautiful, colorful landing page with "Welcome to Smart Tutor"
+2. Student signup (name, phone, grade 6-10, school)
+3. Doubt solver page with:
+   - Subject dropdown (Math, Science, English, Social Studies)
+   - Chapter selector (NCERT chapters for selected grade)
+   - Question input textarea
+   - "Ask AI Tutor" button
+   - Answer display area
+4. Credits counter (10 free questions, then freemium paywall)
+5. Payment screen with 3 plans:
+   - Monthly: ₹199
+   - Quarterly: ₹499
+   - Yearly: ₹1599
+6. Progress tracker page
+7. Mobile-responsive, kid-friendly design with emojis and vibrant colors
+8. Navigation between screens
+
+BACKEND (Node.js + Express):
+1. Student authentication (phone-based signup)
+2. /api/auth/student/signup - Register student
+3. /api/auth/student/login - Login student
+4. /api/curriculum/:grade - Return NCERT chapters for grade
+5. /api/doubt/ask - Accept question + call Claude API + return answer
+6. /api/payment/create-order - Create payment order (mock Razorpay)
+7. /api/payment/verify - Verify payment + upgrade student
+8. /api/student/:studentId - Get student profile
+9. In-memory database for students, questions, payments
+
+CURRICULUM DATA:
+Include NCERT curriculum structure for Classes 6-10 with:
+- Math chapters (Whole Numbers, Fractions, Geometry, Equations, etc.)
+- Science chapters (Components of Food, Respiration, Atoms, etc.)
+- English chapters (Grammar, Writing, Reading)
+- Social Studies chapters (History, Geography, Civics)
+
+FEATURES:
+1. Freemium model: 10 free questions then paywall
+2. Claude API integration (you'll add API key later)
+3. Beautiful student experience
+4. Parent-friendly with affordable pricing
+5. Track questions asked by subject
+6. Display AI answers with formatting (concepts, examples, tips)
+
+DATABASE: 
+Use JSON/in-memory for now (can upgrade to MongoDB later)
+
+STYLING:
+- Vibrant gradients (purple, pink, blue)
+- Large, readable fonts for junior students
+- Emoji support throughout
+- Mobile-first responsive design
+- Kid-friendly, not corporate
+
+Make it production-ready, with proper error handling and user feedback messages. Include mock payment flow (real Razorpay integration can be added later).
