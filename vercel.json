@@ -1,5 +1,5 @@
 {
+  "framework": "react",
   "buildCommand": "pnpm run build",
-  "outputDirectory": ".",
-  "framework": "react"
+  "outputDirectory": "./"
 }
