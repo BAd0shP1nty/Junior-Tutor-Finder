@@ -1,5 +1,4 @@
 {
-  "framework": "react",
   "buildCommand": "pnpm run build",
-  "outputDirectory": "./"
+  "outputDirectory": "artifacts/mobile"
 }
