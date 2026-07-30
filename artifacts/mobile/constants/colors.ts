@@ -68,7 +68,7 @@ const colors = {
     successForeground: '#FFFFFF',
   },
 
- // radius: 12,
+  radius: 12,
 };
 
 export default colors;
