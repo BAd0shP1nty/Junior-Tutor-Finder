@@ -1,25 +1,56 @@
-import { useColorScheme } from "react-native";
-import colors from "@/constants/colors";
-
-/**
- * Returns the design tokens for the current color scheme.
- *
- * The returned object contains all color tokens for the active palette
- * plus scheme-independent values like `radius`.
- *
- * Falls back to the light palette when no dark key is defined in
- * constants/colors.ts (the scaffold ships light-only by default).
- * When a sibling web artifact's dark tokens are synced into a `dark`
- * key, this hook will automatically switch palettes based on the
- * device's appearance setting.
- */
-export function useColors() {
-  const scheme = useColorScheme();
-  const palette =
-    scheme === "dark" && "dark" in colors
-      ? (colors as Record<string, typeof colors.light>).dark
-      : colors.light;
-
-  const radius = 8; // Define separately
-  return { ...palette, radius };
+export interface Chapter {
+  id: string;
+  title: string;
+  duration: string;
+  topics: string[];
 }
+
+export interface QuizQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  correctIndex: number;
+}
+
+export interface Subject {
+  id: string;
+  name: string;
+  icon: string;
+  color: string;
+  bgColor: string;
+  darkColor: string;
+  description: string;
+  chapters: Record<number, Chapter[]>;
+  quiz: Record<number, QuizQuestion[]>;
+}
+
+export const SUBJECTS: Subject[] = [
+  {
+    id: "math",
+    name: "Mathematics",
+    icon: "calculator",
+    color: "#2563EB",
+    bgColor: "#DBEAFE",
+    darkColor: "#1D4ED8",
+    description: "Numbers, algebra, geometry & more",
+    chapters: { 6: [], 7: [], 8: [], 9: [], 10: [] },
+    quiz: { 6: [], 7: [], 8: [], 9: [], 10: [] },
+  },
+  {
+    id: "science",
+    name: "Science",
+    icon: "flask",
+    color: "#16A34A",
+    bgColor: "#DCFCE7",
+    darkColor: "#15803D",
+    description: "Physics, Chemistry & Biology",
+    chapters: { 6: [], 7: [], 8: [], 9: [], 10: [] },
+    quiz: { 6: [], 7: [], 8: [], 9: [], 10: [] },
+  },
+];
+
+export function getSubjectById(id: string): Subject | undefined {
+  return SUBJECTS.find((s) => s.id === id);
+}
+
+export const CLASSES = [6, 7, 8, 9, 10];
